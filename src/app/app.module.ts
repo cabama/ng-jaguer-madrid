@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { routing, appRoutingProviders } from './Routing/routing.module';
+import { RoutingModule } from './Routing/routing.module';
 
 import { AppComponent } from './app.component';
 import { NoticiasComponent } from './Layouts/Noticias/noticias.component';
@@ -20,9 +20,9 @@ import { CardNoticiaComponent } from './Componentes/cardNoticia.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    RoutingModule
   ],
-  providers: [appRoutingProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
