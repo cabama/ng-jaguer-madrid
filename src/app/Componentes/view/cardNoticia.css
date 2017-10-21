@@ -1,0 +1,18 @@
+.card-noticia-container{
+    background-color: white;
+}
+
+.tittle {
+    background-color: #ba68c8;
+}
+
+.tittle a {
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: normal;
+}

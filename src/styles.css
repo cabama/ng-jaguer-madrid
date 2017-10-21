@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: jaguerFont;
+    src: url(/assets/Potsdam.ttf);
+}
+
+@keyframes loadingAnimation {
+    from {
+        -ms-transform: rotate(0deg); /* IE 9 */
+        -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(359deg); /* IE 9 */
+        -webkit-transform: rotate(359deg); /* Chrome, Safari, Opera */
+        transform: rotate(359deg);
+    }
+}
+
+@media (max-width:600px)  { 
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+    header .wrapper {
+        flex-direction: column !important;    
+        align-items: flex-start !important;
+        width: 98% !important;
+    }
+
+    header .wrapper .trade{
+        height: 100px !important;
+        width: 100% !important;
+        align-content: center !important;
+        align-items: center !important;
+        justify-content: space-around !important;
+        font-size: 20px;
+    }
+
+    header .wrapper nav {
+        display: flex !important;
+        height: 50px !important;
+        width: 100% !important;
+        align-content: center;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 13px;
+    }  
+
+}
+
+
+    
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;    
+}
+
+
+.card-shadow {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+header{
+    font-family: 'jaguerFont';
+    display: block;
+    background:#9C27B0;
+    color: white;
+    width: 100%;
+}
+
+header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;    
+    height: 100%;
+    width: 90%;
+    margin: auto;
+}
+
+header .wrapper .trade{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    height: 150px;
+}
+
+header .wrapper img{
+    height: 95%;
+    width: auto;
+    margin-right: 20px;
+}
+
+
+header .wrapper nav {
+    display: flex;
+    width: auto;
+    color: white;
+    text-decoration: none;
+    height: 150px;
+    align-items: center;
+}
+
+header .wrapper nav a {
+    color: white;
+    text-decoration: none;
+}
+
+header .wrapper nav > * {
+    margin: 0 10px;
+}
+
+
+.containerLoading{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 150px);
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    height: 50%;
+    margin: 20px auto;
+    animation-name: loadingAnimation;
+    animation-duration: 4s;
+}
+
+.general-container{
+    padding-top: 20px;
+    background-color: #f3f3f3;
+    min-height: calc(100vh - 150px);
+}
