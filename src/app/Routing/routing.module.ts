@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 
 const appRoutes: Routes = [
-  { path: '',  redirectTo: '/Calendario', pathMatch: 'full' },
+  { path: '',  redirectTo: '/Noticias', pathMatch: 'full' },
   { path: 'Noticias', loadChildren: '../Layouts/Noticias/noticias.module#NoticiasModule'},
   { path: 'Calendario', component: CalendarioComponent },
   { path: 'Plantilla', component: PlantillaComponent }

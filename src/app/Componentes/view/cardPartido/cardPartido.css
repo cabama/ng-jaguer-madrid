@@ -1,0 +1,45 @@
+.card-noticia-container{
+    background-color: white;
+}
+
+.tittle {
+    background-color: #ba68c8;
+}
+
+.tittle a {
+    color:white;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+.escudo {
+    height: 100px;
+    width: 100px;
+    display: block;
+}
+
+p {
+    font-size: 15px;
+}
+
+.description.container p {
+    margin: 3px 0;
+}

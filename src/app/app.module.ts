@@ -9,12 +9,15 @@ import { NoticiasComponent } from './Layouts/Noticias/noticias.component';
 import { CalendarioComponent } from './Layouts/Calendario/calendario.component';
 import { PlantillaComponent } from './Layouts/Plantilla/plantilla.component';
 import { CardNoticiaComponent } from './Componentes/cardNoticia.component';
+import { cardPartidoComponent } from './Componentes/cardPartido.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarioComponent,
     PlantillaComponent,
+    cardPartidoComponent
   ],
   imports: [
     BrowserModule,
