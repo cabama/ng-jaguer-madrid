@@ -1,17 +1,24 @@
-# We label our stage as 'builder'
-FROM node:8-alpine as builder
+FROM node:8.1
 
-COPY package.json ./
+ENV HOME=/usr/src/app
+RUN mkdir $HOME
+WORKDIR $HOME
 
-RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
+USER root
 
-## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
+RUN npm install --quiet --no-progress -g @angular/cli@latest --unsafe
+RUN npm cache clean --force
+# RUN npm install -g @angular/cli --unsafe
+COPY ./package.json /usr/src/app
+COPY ./angular-cli.json /usr/src/app
+COPY ./protractor.conf.js /usr/src/app
+COPY ./karma.conf.js /usr/src/app
 
-WORKDIR /ng-app
+RUN export PATH=/usr/local/lib/node_modules/lib/node_modules/@angular/cli/bin:$PATH
+RUN npm install
+RUN mkdir -p /usr/src/app/src
+RUN mkdir -p /usr/src/app/dist/build
 
-COPY angular-cli.json /ng-app
-COPY src/ /ng-app/src
 
-## Build the angular app in production mode and store the artifacts in dist folder
-RUN $(npm bin)/ng build --prod --build-optimizer
+EXPOSE 4200
+EXPOSE 49153
