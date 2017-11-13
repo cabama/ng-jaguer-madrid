@@ -1,0 +1,25 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'build',
+1 verbose cli   '&&',
+1 verbose cli   'ls',
+1 verbose cli   '&&',
+1 verbose cli   'pwd' ]
+2 info using npm@5.0.3
+3 info using node@v8.1.4
+4 verbose config Skipping project config: /usr/src/app/.npmrc. (matches userconfig)
+5 info build /usr/src/app/&&
+6 verbose stack Error: ENOENT: no such file or directory, open '/usr/src/app/&&/package.json'
+7 verbose cwd /usr/src/app
+8 verbose Linux 4.9.49-moby
+9 verbose argv "/usr/local/bin/node" "/usr/local/bin/npm" "build" "&&" "ls" "&&" "pwd"
+10 verbose node v8.1.4
+11 verbose npm  v5.0.3
+12 error path /usr/src/app/&&/package.json
+13 error code ENOENT
+14 error errno -2
+15 error syscall open
+16 error enoent ENOENT: no such file or directory, open '/usr/src/app/&&/package.json'
+17 error enoent This is related to npm not being able to find a file.
+18 verbose exit [ -2, true ]

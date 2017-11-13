@@ -20,7 +20,7 @@ export class CalendarioComponent {
         local: 'Jaguer Meister C.F.',
         visitor: 'Spider Cerdos S.A',
         stadium: 'Guapitous Stadium',
-        date: '25 Diciembre FunFun',
+        date: '25 Diciembre fun',
         time: '19:40'
     }
 

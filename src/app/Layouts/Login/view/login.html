@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<div id="news-space" class="col-md-12">
+			<div class="margin-top"></div>
+			<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-7">
+				<p>
+					<label>Correo Electronico:</label>
+					<input type="email" #email="ngModel" name="email" [(ngModel)]="correo" class="form-control" required/>
+					<span *ngIf="!email.valid && email.touched">El email es obligatorio</span>
+				</p>
+				<p>
+					<label>Contraseña:</label>
+					<input type="password" #password="ngModel" name="password" [(ngModel)]="contrasena" class="form-control" required/>
+					<span *ngIf="!password.valid && password.touched">El password es obligatorio</span>
+				</p>
+				<input type="submit" name="Login" value="Login" class="btn btn-primary">
+			</form>               
+		</div>
+	</div>
+</div>
