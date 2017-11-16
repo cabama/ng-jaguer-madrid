@@ -1,0 +1,26 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Equipo</th>
+			<th scope="col">Pts</th>
+			<th scope="col">P.G.</th>
+			<th scope="col">P.E.</th>
+			<th scope="col">P.P.</th>
+			<th scope="col">G.F.</th>
+			<th scope="col">G.C.</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let clasificacion of clasificaciones">
+			<td scope="row">{{clasificacion.Posicion}}</td>
+			<td>{{clasificacion.Nombre_equipo}}</td>
+			<td>{{clasificacion.Puntos}}</td>
+			<td>{{clasificacion.Partidos_ganados}}</td>
+			<td>{{clasificacion.Partidos_empatados}}</td>
+			<td>{{clasificacion.Partidos_perdidos}}</td>
+			<td>{{clasificacion.Goles_favor}}</td>
+			<td>{{clasificacion.Goles_contra}}</td>
+		</tr>
+	</tbody>
+</table>

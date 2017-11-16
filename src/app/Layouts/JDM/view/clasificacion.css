@@ -1,0 +1,36 @@
+@media (max-width:600px)  { 
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+    .table {
+        font-size: 9px !important;    
+    }
+}
+
+.table {
+    font-size: 12px;
+}
+#news-space > * {
+    margin-top: 20px;
+}
+
+.card-noticia-container{
+    background-color: white;
+}
+
+.tittle {
+    background-color: #ba68c8;
+}
+
+.tittle a {
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.margin-top{
+    margin-top: 15px;
+}

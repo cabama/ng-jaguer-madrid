@@ -4,12 +4,12 @@
             <div class="card-noticia-container card" *ngFor="let noticia of noticias">
                 <div class="tittle">
                     <div class="container">
-                        <a [routerLink]="['/Noticias', noticia.id]">{{noticia.tittle}}</a>
+                        <a [routerLink]="['/Noticias', noticia._id]">{{noticia.title}}</a>
                     </div>
                 </div>
                 <div class="container">
                     <div class="description">
-                        <p>{{noticia.description}} [...]</p>
+                        <p>{{noticia.body}} [...]</p>
                     </div>
                 </div>
             </div>                            

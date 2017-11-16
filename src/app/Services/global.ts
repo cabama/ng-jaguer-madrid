@@ -1,3 +1,4 @@
 export let GLOBAL = {
-    url: 'http://localhost:2525/'
+    // url: 'http://localhost/api'
+    url: window.location.origin
 };
