@@ -9,4 +9,5 @@ import {Component, Input} from '@angular/core';
 export class CardNoticiaComponent {
     @Input() tittle: string;
     @Input() description: String;
+    
 }
