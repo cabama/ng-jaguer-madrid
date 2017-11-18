@@ -7,10 +7,12 @@ import { RoutingModule } from './Routing/routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ng2mfbModule } from './Componentes/ng-floating-button';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule, MatFormField, MatFormFieldModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 // Our components
 import { AppComponent } from './app.component';
-import { NoticiasComponent } from './Layouts/Noticias/noticias.component';
 import { CalendarioComponent } from './Layouts/Calendario/calendario.component';
 import { PlantillaComponent } from './Layouts/Plantilla/plantilla.component';
 import { LoginComponent } from './Layouts/Login/login.component';
@@ -34,7 +36,13 @@ import { BrowserAnimationBuilder } from '@angular/platform-browser/animations/sr
     FormsModule,
     HttpModule,
     RoutingModule,
-    ng2mfbModule
+    ng2mfbModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatIconModule,
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OnInit, OnDestroy } from '@angular/core';
-import { NewsService } from '../../Services/news.service';
+import { NewsService } from '../../../../Services/news.service';
 
 @Component({
     selector: 'app-noticias-detalle',
-    templateUrl: './viewDetalle/noticias_detalle.html',
-    styleUrls: ['./viewDetalle/noticias_detalle.css'],
+    templateUrl: './noticias_detalle.html',
+    styleUrls: ['./noticias_detalle.css'],
     providers: [NewsService]
   })
 
@@ -16,7 +16,7 @@ export class NoticiasDetalleComponent implements OnInit, OnDestroy {
     public noticia = {
         title: '',
         body: ''
-    }
+    };
 
     constructor(
         private route: ActivatedRoute,

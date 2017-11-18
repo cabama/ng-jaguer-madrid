@@ -1,26 +1,94 @@
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th scope="col">#</th>
-			<th scope="col">Equipo</th>
-			<th scope="col">Pts</th>
-			<th scope="col">P.G.</th>
-			<th scope="col">P.E.</th>
-			<th scope="col">P.P.</th>
-			<th scope="col">G.F.</th>
-			<th scope="col">G.C.</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let clasificacion of clasificaciones">
-			<td scope="row">{{clasificacion.Posicion}}</td>
-			<td>{{clasificacion.Nombre_equipo}}</td>
-			<td>{{clasificacion.Puntos}}</td>
-			<td>{{clasificacion.Partidos_ganados}}</td>
-			<td>{{clasificacion.Partidos_empatados}}</td>
-			<td>{{clasificacion.Partidos_perdidos}}</td>
-			<td>{{clasificacion.Goles_favor}}</td>
-			<td>{{clasificacion.Goles_contra}}</td>
-		</tr>
-	</tbody>
-</table>
+<mat-tab-group>
+	<mat-tab>
+		<ng-template mat-tab-label>
+			Clasificación
+		</ng-template>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Equipo</th>
+					<th scope="col">Pts</th>
+					<th scope="col">P.G.</th>
+					<th scope="col">P.E.</th>
+					<th scope="col">P.P.</th>
+					<th scope="col">G.F.</th>
+					<th scope="col">G.C.</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let clasificacion of clasificaciones">
+					<td scope="row">{{clasificacion.Posicion}}</td>
+					<td>{{clasificacion.Nombre_equipo}}</td>
+					<td>{{clasificacion.Puntos}}</td>
+					<td>{{clasificacion.Partidos_ganados}}</td>
+					<td>{{clasificacion.Partidos_empatados}}</td>
+					<td>{{clasificacion.Partidos_perdidos}}</td>
+					<td>{{clasificacion.Goles_favor}}</td>
+					<td>{{clasificacion.Goles_contra}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</mat-tab>
+	<mat-tab>
+
+		<ng-template mat-tab-label>
+			Resultados
+		</ng-template>
+		
+		<mat-table #table [dataSource]="dataSource" matSort>
+		<!-- Position Column -->
+		
+		<ng-container matColumnDef="Posicion">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.Posicion}} </mat-cell>
+		</ng-container>
+
+    <ng-container matColumnDef="Nombre_equipo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Equipo. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Nombre_equipo}} </mat-cell>
+    </ng-container>
+
+		<!-- Name Column -->
+		<ng-container matColumnDef="Puntos">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Pts </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.Puntos}} </mat-cell>
+		</ng-container>
+		
+		<!-- Weight Column -->
+		<ng-container matColumnDef="Partidos_ganados">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> P.G. </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.Partidos_ganados}} </mat-cell>
+		</ng-container>
+		
+		<!-- Color Column -->
+		<ng-container matColumnDef="Partidos_empatados">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> P.E. </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.Partidos_empatados}} </mat-cell>
+		</ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Partidos_perdidos">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> P.P. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Partidos_perdidos}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Goles_favor">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> G.F </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Goles_favor}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Goles_contra">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> G.C </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Goles_contra}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+	</mat-tab>
+</mat-tab-group>
+
+

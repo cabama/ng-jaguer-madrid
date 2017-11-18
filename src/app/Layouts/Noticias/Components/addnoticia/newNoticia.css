@@ -1,0 +1,62 @@
+form {
+    margin-top: 20px;
+}
+
+#news-space > * {
+    margin-top: 20px;
+}
+
+.mrg-bottom {
+    margin-bottom: 10px;
+}
+
+.card-noticia-container{
+    background-color: white;
+}
+
+.tittle {
+    background-color: #ba68c8;
+    color:white;
+}
+
+.tittle a {
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/* COSAS DEL BOTON ENVIAR */
+
+.btn-large, .btn-flat {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ba68c8;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    cursor: pointer;
+    margin-left: .75rem;
+}
+
+.btn {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}

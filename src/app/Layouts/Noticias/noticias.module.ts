@@ -6,18 +6,27 @@ import { NoticiasRoutingModule } from './noticias-routing.module';
 // Floating button
 import { ng2mfbModule } from 'app/Componentes/ng-floating-button';
 // Components
-import { NoticiasComponent } from './noticias.component';
-import { NoticiasDetalleComponent } from './noticiasDetalle.component';
 import { CardNoticiaComponent } from '../../Componentes/cardNoticia.component';
+import { NoticiasComponent } from './Components/noticias/noticias.component';
+import { NoticiasDetalleComponent } from './Components/noticiaDetallada/noticiasDetalle.component';
+import { NewNewsComponent } from 'app/Layouts/Noticias/Components/addnoticia/newNoticia.component';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 
 
 @NgModule({
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
     CommonModule,
     NoticiasRoutingModule,
     ng2mfbModule
   ],
-  declarations: [NoticiasComponent, NoticiasDetalleComponent, CardNoticiaComponent]
+  declarations: [
+    NoticiasComponent,
+    NoticiasDetalleComponent,
+    NewNewsComponent,
+    CardNoticiaComponent
+  ]
 })
 export class NoticiasModule { }

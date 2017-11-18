@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { NoticiasComponent } from './Components/noticias/noticias.component';
+import { NoticiasDetalleComponent } from './Components/noticiaDetallada/noticiasDetalle.component';
+import { NewNewsComponent } from './Components/addnoticia/newNoticia.component';
 
-import { NoticiasComponent } from './noticias.component';
-import { NoticiasDetalleComponent } from './noticiasDetalle.component';
 
 const routes: Routes = [
   { path: '', component: NoticiasComponent },
-  { path: ':id', component: NoticiasDetalleComponent },
+  { path: 'Details/:id', component: NoticiasDetalleComponent },
+  { path: 'New', component: NewNewsComponent },
 ];
 
 @NgModule({

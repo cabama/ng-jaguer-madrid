@@ -1,7 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { Routes, RouterModule, LoadChildren } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NoticiasComponent } from '../Layouts/Noticias/noticias.component';
 import { CalendarioComponent } from '../Layouts/Calendario/calendario.component';
 import { PlantillaComponent } from '../Layouts/Plantilla/plantilla.component';
 import { LoginComponent } from 'app/Layouts/Login/login.component';
