@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from 'app/Services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Jaguer Package!';
+  constructor (private auth: AuthService) {}
 }

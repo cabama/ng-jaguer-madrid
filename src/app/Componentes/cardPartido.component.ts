@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 type Partido = {
-    local:string
-    stadium: string
-    visitor:string
-    date: string
-    time: string
-}
+    Equipo_local: string
+    Equipo_visitante: string
+    Campo: string
+    Fecha: string
+    Hora: string
+};
 
 @Component({
     selector: 'app-card-partido',
@@ -14,24 +15,22 @@ type Partido = {
     styleUrls: ['./view/cardPartido/cardPartido.css']
   })
 
-export class cardPartidoComponent {
-    @Input() pachanga: Partido;
-
+export class CardPartidoComponent implements OnInit {
+    @Input() pachanga;
     // @Input() description: String;
-    
-    public local:string = 'Jaguer Meister C.F.';
-    public stadium: string = 'Guapitous Stadium';
-    public visitor:string = 'Jubiletas Team S.A.';
-    public date: string = '21 Octubre 2017';
-    public time: string = '16:00';
+    public Equipo_visitante: string;
+    public Equipo_local: string;
+    public Campo: string;
+    public Fecha: string;
+    public Hora: string;
 
-    
-    ngOnInit() { 
-        this.local = this.pachanga.local
-        this.visitor = this.pachanga.visitor
-        this.stadium = this.pachanga.stadium
-        this.date = this.pachanga.date
-        this.time = this.pachanga.time
+    ngOnInit() {
+        console.log(this.pachanga);
+        this.Equipo_visitante = this.pachanga.Equipo_visitante;
+        this.Equipo_local = this.pachanga.Equipo_local;
+        this.Campo = this.pachanga.Campo;
+        this.Fecha = this.pachanga.Fecha;
+        this.Hora = this.pachanga.Hora;
     }
 
 

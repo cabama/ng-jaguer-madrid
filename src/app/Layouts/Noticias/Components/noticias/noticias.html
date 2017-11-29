@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="row justify-content-center">
-        <div id="news-space" class="col-md-12">
-            <div class="card-noticia-container card" *ngFor="let noticia of noticias">
-                <div class="tittle">
-                    <div class="container">
-                        <a [routerLink]="['/Noticias', 'Details', noticia._id]">{{noticia.title}}</a>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="description">
-                        <p>{{noticia.body}} [...]</p>
-                    </div>
-                </div>
-            </div>                            
-        </div>
-    </div>
+	<div class="row justify-content-center">
+		<div class="col-md-12">
+			<div class="card-noticia-container card" *ngFor="let noticia of noticias">
+				<div class="tittle">
+					<div class="container">
+						<a [routerLink]="['/Noticias', 'Details', noticia._id]">{{noticia.title}}</a>
+					</div>
+				</div>
+				<div class="container">
+					<div class="description">
+						<p>{{noticia.body}} [...]</p>
+					</div>
+				</div>
+			</div>                            
+		</div>
+	</div>
 </div>
 <ng2-floating-button 
   [placement]="config.placment" 

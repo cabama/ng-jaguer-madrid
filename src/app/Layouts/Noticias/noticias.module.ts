@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // Routing
 import { NoticiasRoutingModule } from './noticias-routing.module';
@@ -16,6 +17,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     CommonModule,

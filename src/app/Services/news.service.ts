@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
@@ -25,6 +25,17 @@ export class NewsService {
     const params = ({ _id });
     const rerequestUrl = this.requestUrl + '/' + _id;
     return this._http.get(rerequestUrl, { headers: headers }).map(res => res.json()).toPromise();
+  }
+
+  createNew (token, noticia): Promise<any> {
+    const rerequestUrl = this.requestUrl;
+    const headers = new Headers({ 'Content-Type': 'application/json', 'authoritation': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImNhYmFtYSIsIm5hbWUiOiJDYXJsb3MiLCJzdXJuYW1lIjoiYmFycmVpcm8gbWF0YSIsImVtYWlsIjoiYmFycmV5bWF0YUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNTEwMzQzMjYxfQ.6n8oXXV0psK-OxihJXZooSb9kq5euwc5S22N2a0VoYY' });
+    const options = new RequestOptions({headers: headers});
+    const body = {
+      tittle: noticia.body,
+      body: noticia.body
+    };
+    return this._http.post(rerequestUrl, body, options).map(res => res.json()).toPromise();
   }
 
 

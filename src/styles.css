@@ -130,7 +130,6 @@ header .wrapper nav > * {
 }
 
 .general-container{
-    padding-top: 20px;
     background-color: #f3f3f3;
     min-height: calc(100vh - 150px);
 }

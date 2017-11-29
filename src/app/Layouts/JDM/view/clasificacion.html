@@ -30,65 +30,34 @@
 			</tbody>
 		</table>
 	</mat-tab>
+	<!-- Tabla calendario -->
 	<mat-tab>
-
 		<ng-template mat-tab-label>
 			Resultados
 		</ng-template>
-		
-		<mat-table #table [dataSource]="dataSource" matSort>
-		<!-- Position Column -->
-		
-		<ng-container matColumnDef="Posicion">
-			<mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.Posicion}} </mat-cell>
-		</ng-container>
-
-    <ng-container matColumnDef="Nombre_equipo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Equipo. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.Nombre_equipo}} </mat-cell>
-    </ng-container>
-
-		<!-- Name Column -->
-		<ng-container matColumnDef="Puntos">
-			<mat-header-cell *matHeaderCellDef mat-sort-header> Pts </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.Puntos}} </mat-cell>
-		</ng-container>
-		
-		<!-- Weight Column -->
-		<ng-container matColumnDef="Partidos_ganados">
-			<mat-header-cell *matHeaderCellDef mat-sort-header> P.G. </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.Partidos_ganados}} </mat-cell>
-		</ng-container>
-		
-		<!-- Color Column -->
-		<ng-container matColumnDef="Partidos_empatados">
-			<mat-header-cell *matHeaderCellDef mat-sort-header> P.E. </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.Partidos_empatados}} </mat-cell>
-		</ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="Partidos_perdidos">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> P.P. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.Partidos_perdidos}} </mat-cell>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="Goles_favor">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> G.F </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.Goles_favor}} </mat-cell>
-    </ng-container>
-
-    <!-- Color Column -->
-    <ng-container matColumnDef="Goles_contra">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> G.C </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.Goles_contra}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+		<div class="container">
+			<div class="jornada" *ngFor="let jornada of resultados">
+				<app-card-partido 
+					[pachanga]="jornada">
+				</app-card-partido>			
+				<div class="mgDown"></div>
+			</div>
+		</div>
 	</mat-tab>
+
+	<mat-tab>
+		<ng-template mat-tab-label>
+			Calendario
+		</ng-template>
+		<div class="container">
+			<div class="jornada" *ngFor="let jornada of calendario">
+				<app-card-partido [pachanga]="jornada">
+				</app-card-partido>
+				<div class="mgDown"></div>
+			</div>
+		</div>
+	</mat-tab>
+
 </mat-tab-group>
 
 

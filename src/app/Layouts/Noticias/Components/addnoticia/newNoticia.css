@@ -17,12 +17,9 @@ form {
 .tittle {
     background-color: #ba68c8;
     color:white;
-}
-
-.tittle a {
-    color:white;
     font-size: 20px;
     font-weight: 500;
+    line-height: 56px;
 }
 
 .description {

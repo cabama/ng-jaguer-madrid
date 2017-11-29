@@ -17,9 +17,11 @@ import { CalendarioComponent } from './Layouts/Calendario/calendario.component';
 import { PlantillaComponent } from './Layouts/Plantilla/plantilla.component';
 import { LoginComponent } from './Layouts/Login/login.component';
 import { CardNoticiaComponent } from './Componentes/cardNoticia.component';
-import { cardPartidoComponent } from './Componentes/cardPartido.component';
+import { CardPartidoComponent } from './Componentes/cardPartido.component';
 import { JDMComponent } from './Layouts/JDM/jdm.component';
 import { BrowserAnimationBuilder } from '@angular/platform-browser/animations/src/animation_builder';
+import { SharedService } from './Services/share.service';
+import { AuthService } from 'app/Services/auth.service';
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { BrowserAnimationBuilder } from '@angular/platform-browser/animations/sr
     PlantillaComponent,
     JDMComponent,
     LoginComponent,
-    cardPartidoComponent,
+    CardPartidoComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { BrowserAnimationBuilder } from '@angular/platform-browser/animations/sr
     MatInputModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [AuthService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

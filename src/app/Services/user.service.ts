@@ -3,7 +3,7 @@ import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
-import { RequestOptions } from '@angular/http/src/base_request_options';
+import { RequestOptions } from '@angular/http';
 
 @Injectable()
 export class UserService {
@@ -30,6 +30,11 @@ export class UserService {
   saveLogin (response) {
     localStorage.setItem(this.keyStorageToken, response.token);
     localStorage.setItem(this.keyStorageUser, JSON.stringify(response.user));
+  }
+
+  getUser () {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    // return this._http.post(this.requestUrl, params, { headers: headers }).map(res => res.json()).toPromise();
   }
 }
 
