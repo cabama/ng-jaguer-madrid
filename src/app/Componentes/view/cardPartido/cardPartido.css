@@ -17,6 +17,7 @@
 }
 
 .description {
+    margin: 15px 0;
     font-size: 16px;
     font-weight: normal;
 }
@@ -27,6 +28,11 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+}
+
+.team > p {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 
@@ -41,5 +47,5 @@ p {
 }
 
 .description.container p {
-    margin: 3px 0;
+    margin: 3px 15px;
 }

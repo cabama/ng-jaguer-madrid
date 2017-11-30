@@ -52,9 +52,10 @@ type clasificion = {
        calendario.forEach( jornada => {
          const jornadaDate = new Date(jornada.Date);
          if (now > jornadaDate) {
-           this.calendario.push(jornada);
-         } else {
-           this.resultados.push(jornada);
+            this.calendario.push(jornada);
+          } else {
+            jornada['ResultDisabled'] = true;
+            this.resultados.push(jornada);
          }
        });
        console.log(this.calendario);

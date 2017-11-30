@@ -33,27 +33,28 @@
 	<!-- Tabla calendario -->
 	<mat-tab>
 		<ng-template mat-tab-label>
-			Resultados
+			 Calendario
 		</ng-template>
 		<div class="container">
 			<div class="jornada" *ngFor="let jornada of resultados">
+				<div class="mgDown"></div>
 				<app-card-partido 
 					[pachanga]="jornada">
 				</app-card-partido>			
-				<div class="mgDown"></div>
 			</div>
 		</div>
 	</mat-tab>
 
 	<mat-tab>
 		<ng-template mat-tab-label>
-			Calendario
+			 Resultados
 		</ng-template>
 		<div class="container">
 			<div class="jornada" *ngFor="let jornada of calendario">
-				<app-card-partido [pachanga]="jornada">
-				</app-card-partido>
 				<div class="mgDown"></div>
+				<app-card-partido 
+					[pachanga]="jornada">
+				</app-card-partido>
 			</div>
 		</div>
 	</mat-tab>
