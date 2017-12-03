@@ -13,8 +13,6 @@ import { NoticiasDetalleComponent } from './Components/noticiaDetallada/noticias
 import { NewNewsComponent } from 'app/Layouts/Noticias/Components/addnoticia/newNoticia.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
-
-
 @NgModule({
   imports: [
     FormsModule,
