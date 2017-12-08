@@ -21,6 +21,7 @@ import { JDMComponent } from './Layouts/JDM/jdm.component';
 import { BrowserAnimationBuilder } from '@angular/platform-browser/animations/src/animation_builder';
 import { SharedService } from './Services/share.service';
 import { AuthService } from 'app/Services/auth.service';
+import { UserService } from 'app/Services/user.service';
 
 
 
@@ -44,7 +45,7 @@ import { AuthService } from 'app/Services/auth.service';
     MatInputModule,
     MatFormFieldModule
   ],
-  providers: [AuthService, SharedService],
+  providers: [UserService, SharedService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { NewsService } from '../../../../Services/news.service';
 import { MfbButton } from 'app/Componentes/ng-floating-button';
-import { AuthService } from '../../../../Services/auth.service';
-
+import { NewsService } from '@services/news.service';
+import { UserService } from '@services/user.service';
 
 
 @Component({
@@ -41,21 +40,21 @@ export class NoticiasComponent {
   }];
 
   constructor(
-        private _newsService: NewsService,
-        private router: Router,
-        private auth: AuthService
-    ) {
+    private _newsService: NewsService,
+    private router: Router,
+    private _userSrv: UserService
+  ) {
     this.config = {
-        placment: 'br',
-        effect: 'mfb-zoomin',
-        label: 'main button label',
-        iconClass: 'ion-plus-round',
-        activeIconClass: 'ion-close-round',
-        toggle: 'click',
-        buttons: this.buttons
+      placment: 'br',
+      effect: 'mfb-zoomin',
+      label: 'main button label',
+      iconClass: 'ion-plus-round',
+      activeIconClass: 'ion-close-round',
+      toggle: 'click',
+      buttons: this.buttons
     };
 
-      this.admin = this.auth.authenticated;
+    this.admin = this._userSrv.authenticated;
 
     _newsService.getAllNews().then((resolve) => {
       this.noticias = resolve;

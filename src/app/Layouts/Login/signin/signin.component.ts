@@ -35,6 +35,7 @@ export class SignInComponent {
     this._userService.signup(this.correo, this.contrasena, true)
     .then((resolve) => {
       this._userService.saveLogin(resolve);
+      this.openSnackBar('Logged user.');
       this.router.navigate(['/']);
     }).catch((reason => {
       this.openSnackBar(reason);

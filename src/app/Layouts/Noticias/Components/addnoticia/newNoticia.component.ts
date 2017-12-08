@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OnInit, OnDestroy } from '@angular/core';
-import { NewsService } from '../../../../Services/news.service';
-import { SharedService } from '../../../../Services/share.service';
+import { NewsService } from '@services/news.service';
+import { SharedService } from '@services/share.service';
+import { UserService } from '@services/user.service';
+import { User } from '../../../../Models/user';
 
 @Component({
     selector: 'app-new-news',
@@ -11,23 +13,22 @@ import { SharedService } from '../../../../Services/share.service';
     providers: [NewsService]
 })
 
-export class NewNewsComponent implements OnInit {
+export class NewNewsComponent {
     public id: string;
     public sub: any;
+    private user: User;
     public noticia = {
         title: '',
         body: ''
     };
-    public token: string;
 
     constructor(
         private route: ActivatedRoute,
         private _newsService: NewsService,
+        private _userService: UserService,
         private shared: SharedService
-    ) {}
-
-    ngOnInit() {
-    //    console.log(this.shared.token);
+    ) {
+        this.user = this._userService.userAuth;
     }
 
     onSubmit () {

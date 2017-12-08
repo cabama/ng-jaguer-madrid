@@ -1,4 +1,4 @@
-export const localStorageItems = {
+export const StorageKeys = {
     user: 'jaguerUser',
     token: 'jaguerToken',
     ranking: 'jaguerClasificacion'

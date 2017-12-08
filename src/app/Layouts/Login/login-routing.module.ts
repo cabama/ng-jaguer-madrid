@@ -6,12 +6,14 @@ import { AuthService } from 'app/Services/auth.service';
 import {
   SignInComponent,
   SignedComponent,
+  SignUpComponent,
   UpdateUserComponent
 } from '@login/index';
 
 const routes: Routes = [
   { path: '', component: SignedComponent, canActivate: [AuthService] },
   { path: 'SignIn', component: SignInComponent},
+  { path: 'SignUp', component: SignUpComponent},
   { path: 'Update', component: UpdateUserComponent, canActivate: [AuthService]}
 ];
 
@@ -33,5 +35,6 @@ export class LoginRoutingModule {
 export const routerComponents = [
   SignInComponent,
   SignedComponent,
+  SignUpComponent,
   UpdateUserComponent
 ];

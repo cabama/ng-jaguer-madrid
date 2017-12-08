@@ -1,4 +1,4 @@
-.contenedoravatar{
+.contenedoravatar {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,7 +23,7 @@ form:first-of-type {
   margin-top: 55px;
 }
 
-form:last-of-type{
+form:last-of-type {
   margin-bottom: 20px;
 }
 

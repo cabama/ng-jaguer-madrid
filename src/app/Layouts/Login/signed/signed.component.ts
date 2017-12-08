@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@services/auth.service';
 import { User } from '../../../Models/user';
+import { UserService } from 'app/Services/user.service';
 
 @Component({
   selector: 'app-signed',
   templateUrl: './signed.html',
   styleUrls: ['./signed.css'],
-  providers: [AuthService]
 })
 
 export class SignedComponent {
 
   public user: User;
 
-  constructor(private _auth: AuthService, private router: Router) {
+  constructor(private _userService: UserService, private router: Router) {
     console.log('Estoy en el maldito constructor');
-    this.user = _auth.userAuth;
+    this.user = _userService.userAuth;
   }
 
   logout () {
@@ -24,7 +23,7 @@ export class SignedComponent {
   }
 
   edit () {
-    alert('Funcion aun no implementada');
+    this.router.navigate(['Login', 'Update']);
   }
 }
 

@@ -1,71 +1,45 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { localStorageItems } from '../Config/localStorage';
-import { Http, Response, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
-import { SharedService } from './share.service';
 import { CanActivate } from '@angular/router';
 import { User } from '../Models/user';
-
-
-
-// Avoid name not found warnings
-declare var auth0: any;
+import { StorageKeys } from 'app/Config/localStorage';
+import { UserService } from './user.service';
 
 @Injectable()
-export class AuthService implements CanActivate{
-
-  // Create a stream of logged in status to communicate throughout app
-  private logined: boolean;
-  loggedIn: boolean;
-  loggedIn$ = new BehaviorSubject<boolean>(this.loggedIn);
+export class AuthService implements CanActivate {
 
   constructor(
-    private _http: Http,
     private router: Router,
-    private shared: SharedService
-  ) {
-    if (this.authenticated) {
-      // this.login()
-      this.shared.token = window.localStorage.getItem(localStorageItems.token);
-    }
-  }
-
-  get userAuth (): User {
-    return JSON.parse(window.localStorage.getItem(localStorageItems.user)) as User;
-  }
+    private _userService: UserService,
+  ) {}
 
   canActivate() {
-    console.log(`can activate: ${this.authenticated}`);
+    console.log(`can activate: ${this._userService.authenticated}`);
     // If the user is not logged in we'll send them back to the home page
-    if (!this.authenticated) {
+    if (!this._userService.authenticated) {
       this.router.navigate(['Login', 'SignIn']);
       return false;
     }
     return true;
   }
+}
 
-  get authenticated(): boolean {
-      // Check if there's an unexpired access token
-      if (
-        !!window.localStorage.getItem(localStorageItems.token) &&
-        !!window.localStorage.getItem(localStorageItems.user)
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-  }
+@Injectable()
+export class AuthAdminService implements CanActivate {
 
-  login(email, password, getHash = false): Promise<any> {
-      const headers = new Headers({ 'Content-Type': 'application/json' });
-      const params = ({
-          email: email,
-          password: password,
-          getHash: getHash
-      });
-      return this._http.post(this.shared.baseUrl, params, { headers: headers }).map(res => res.json()).toPromise();
+  constructor(
+    private router: Router,
+    private _userService: UserService,
+  ) { }
+
+  canActivate() {
+    console.log(`can activate: ${this._userService.authenticated}`);
+    if (
+      this._userService.authenticated &&
+      this._userService.userAuth.role === 'ADMIN'
+    ) {
+      return true;
+    }
+    return false;
   }
 }
