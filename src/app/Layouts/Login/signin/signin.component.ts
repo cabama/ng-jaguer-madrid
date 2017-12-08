@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'app/Models/user';
 import { UserService } from 'app/Services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
+
 
 @Component({
     selector: 'app-sigin',
@@ -17,7 +19,11 @@ export class SignInComponent {
   public correo;
   public contrasena;
 
-  constructor ( private _userService: UserService, private router: Router ) {
+  constructor (
+    private _userService: UserService,
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) {
     console.log('Estoy en el maldito constructor');
     this.user = new User();
   }
@@ -28,10 +34,16 @@ export class SignInComponent {
     console.log(`El correo es: ${this.contrasena}`);
     this._userService.signup(this.correo, this.contrasena, true)
     .then((resolve) => {
-        this._userService.saveLogin(resolve);
-        this.router.navigate(['/']);
+      this._userService.saveLogin(resolve);
+      this.router.navigate(['/']);
     }).catch((reason => {
-        console.log(JSON.parse(reason._body).message);
+      this.openSnackBar(reason);
+      console.log(JSON.parse(reason._body).message);
     }));
   }
+
+  openSnackBar(text: string) {
+    this.snackbar.open(text, 'Cerrar', {
+      duration: 3000
+    });  }
 }

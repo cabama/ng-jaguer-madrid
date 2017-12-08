@@ -5,12 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from 'app/Services/auth.service';
 import {
   SignInComponent,
-  SignedComponent 
+  SignedComponent,
+  UpdateUserComponent
 } from '@login/index';
 
 const routes: Routes = [
   { path: '', component: SignedComponent, canActivate: [AuthService] },
-  { path: 'SignIn', component: SignInComponent}
+  { path: 'SignIn', component: SignInComponent},
+  { path: 'Update', component: UpdateUserComponent, canActivate: [AuthService]}
 ];
 
 @NgModule({
@@ -28,4 +30,8 @@ export class LoginRoutingModule {
   }
 }
 
-export const routerComponents = [ SignInComponent, SignedComponent ];
+export const routerComponents = [
+  SignInComponent,
+  SignedComponent,
+  UpdateUserComponent
+];
