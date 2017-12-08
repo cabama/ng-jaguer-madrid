@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RoutingModule } from './Routing/routing.module';
+import { RoutingModule, RoutingComponents } from './Routing/routing.module';
 // Material Design
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -15,7 +15,6 @@ import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { CalendarioComponent } from './Layouts/Calendario/calendario.component';
 import { PlantillaComponent } from './Layouts/Plantilla/plantilla.component';
-import { LoginComponent } from './Layouts/Login/login.component';
 import { CardNoticiaComponent } from './Componentes/cardNoticia.component';
 import { CardPartidoComponent } from './Componentes/cardPartido.component';
 import { JDMComponent } from './Layouts/JDM/jdm.component';
@@ -24,14 +23,13 @@ import { SharedService } from './Services/share.service';
 import { AuthService } from 'app/Services/auth.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarioComponent,
-    PlantillaComponent,
+    RoutingComponents,
     JDMComponent,
-    LoginComponent,
-    CardPartidoComponent,
+    CardPartidoComponent
   ],
   imports: [
     BrowserModule,

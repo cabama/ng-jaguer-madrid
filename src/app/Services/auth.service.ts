@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { SharedService } from './share.service';
 import { CanActivate } from '@angular/router';
+import { User } from '../Models/user';
 
 
 
@@ -32,11 +33,15 @@ export class AuthService implements CanActivate{
     }
   }
 
+  get userAuth (): User {
+    return JSON.parse(window.localStorage.getItem(localStorageItems.user)) as User;
+  }
+
   canActivate() {
     console.log(`can activate: ${this.authenticated}`);
     // If the user is not logged in we'll send them back to the home page
     if (!this.authenticated) {
-      this.router.navigate(['Login']);
+      this.router.navigate(['Login', 'SignIn']);
       return false;
     }
     return true;

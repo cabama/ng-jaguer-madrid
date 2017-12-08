@@ -11,7 +11,7 @@ import { AuthService } from '../../../../Services/auth.service';
   templateUrl: './noticias.html',
   styleUrls: ['./noticias.css'],
   providers: [NewsService]
-  })
+})
 
 export class NoticiasComponent {
   public nombre_component = 'Componente Noticias';

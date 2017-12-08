@@ -1,0 +1,41 @@
+.contenedoravatar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#avatar {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background: black;
+  border-radius: 50%;
+  top: -50px;
+}
+
+.card {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+
+form:first-of-type {
+  margin-top: 55px;
+}
+
+form:last-of-type{
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 20px;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#botonera {
+  margin-bottom: 20px;
+}

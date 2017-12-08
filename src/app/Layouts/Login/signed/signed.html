@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="card">
+    <div class="contenedoravatar">
+      <img id="avatar" src="" alt="">  
+    </div>
+    <form  class="container">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" value="{{user.name}}" class="form-control" name="name" disabled/>
+      </div>
+      <div class="form-group">
+        <label for="surname"Apellidos>Apellidos</label>
+        <input type="text" value="{{user.surname}}" class="form-control" name="name" disabled/>
+      </div>
+      <div class="form-group">
+        <label for="correo" Apellidos>Correo</label>
+        <input type="email" value="{{user.email}}" class="form-control" name="name" disabled/>
+      </div>
+      <div class="form-group">
+        <label for="role" Apellidos>Role</label>
+        <input type="text" value="{{user.role}}" class="form-control" name="role" disabled/>
+      </div>
+    </form>
+    <div id="botonera" class="container">
+      <div class="row justify-content-end">
+        <div class="col-md-3">
+          <button class="btn" (click)="edit()">
+            Edit
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn" (logout)="logout()">
+            Logout
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
