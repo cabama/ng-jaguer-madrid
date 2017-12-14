@@ -14,7 +14,9 @@ import { Subscriber } from 'rxjs/Subscriber';
 export class UserService {
   public url: string;
   public requestUrl: string;
+
   private user: User;
+  private token: string;
 
   constructor (
     private _http: Http,
@@ -22,7 +24,6 @@ export class UserService {
   ) {
     this.url = document.location.origin + '/api';
     this.requestUrl = this.url + '/login';
-    this.user = JSON.parse(window.localStorage.getItem(StorageKeys.user)) as User;
   }
 
   get userAuth() {
@@ -53,11 +54,6 @@ export class UserService {
     return observer.map(res => res.json()).toPromise();
   }
 
-  saveLogin (response) {
-    localStorage.setItem(StorageKeys.token, response.token);
-    localStorage.setItem(StorageKeys.user, JSON.stringify(response.user));
-  }
-
   login(email, password, getHash = false): Promise<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const params = ({
@@ -69,15 +65,29 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem(StorageKeys.token);
-    localStorage.removeItem(StorageKeys.user);
     this.user = undefined;
+    this.removeLoginStorage();
   }
 
   private async setUserFromRequest (observer: Observable<Response>) {
     observer.subscribe(
       value => this.user
     );
+  }
+
+  getloginFromStorage () {
+    this.user = JSON.parse(window.localStorage.getItem(StorageKeys.user)) as User;
+    this.token = window.localStorage.getItem(StorageKeys.token)
+  }
+
+  removeLoginStorage() {
+    localStorage.removeItem(StorageKeys.token);
+    localStorage.removeItem(StorageKeys.user);
+  }
+
+  saveLoginStorage(response) {
+    localStorage.setItem(StorageKeys.token, response.token);
+    localStorage.setItem(StorageKeys.user, JSON.stringify(response.user));
   }
 
 }
