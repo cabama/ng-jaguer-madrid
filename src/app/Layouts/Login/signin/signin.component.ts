@@ -46,7 +46,6 @@ export class SignInComponent {
     console.log(`El correo es: ${this.login.password}`);
     this._userService.signup(this.login.email, this.login.password, true)
     .then((resolve) => {
-      this._userService.saveLogin(resolve);
       this.openSnackBar('Logged user.');
       this.router.navigate(['/']);
     }).catch((reason => {

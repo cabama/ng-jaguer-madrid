@@ -54,14 +54,17 @@ export class UserService {
     return observer.map(res => res.json()).toPromise();
   }
 
-  login(email, password, getHash = false): Promise<any> {
+  async login(email, password, getHash = false): Promise<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const params = ({
       email: email,
       password: password,
       getHash: getHash
     });
-    return this._http.post(this._shared.baseUrl, params, { headers: headers }).map(res => res.json()).toPromise();
+    const responsePromise = await this._http.post(this._shared.baseUrl, params, { headers: headers }).map(res => res.json()).toPromise();
+    this.user = responsePromise.user;
+    this.saveLoginStorage(responsePromise);
+    return responsePromise;
   }
 
   logout() {
@@ -77,7 +80,7 @@ export class UserService {
 
   getloginFromStorage () {
     this.user = JSON.parse(window.localStorage.getItem(StorageKeys.user)) as User;
-    this.token = window.localStorage.getItem(StorageKeys.token)
+    this.token = window.localStorage.getItem(StorageKeys.token);
   }
 
   removeLoginStorage() {
