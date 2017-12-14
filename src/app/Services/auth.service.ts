@@ -17,7 +17,7 @@ export class AuthService implements CanActivate {
     console.log(`can activate: ${this._userService.authenticated}`);
     // If the user is not logged in we'll send them back to the home page
     if (!this._userService.authenticated) {
-      this.router.navigate(['Login', 'SignIn']);
+      this.router.navigate(['Login', 'SignIn'], {queryParams: { restrictedAccess: true }});
       return false;
     }
     return true;

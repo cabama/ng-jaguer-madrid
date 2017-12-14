@@ -1,0 +1,31 @@
+.card {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+form:first-of-type {
+  margin-top: 20px;
+}
+
+form:last-of-type{
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 20px;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #ba68c8;
+}
+
+#botonera {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 30px;
+}

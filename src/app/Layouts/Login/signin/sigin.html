@@ -1,21 +1,36 @@
 <div class="container">
-	<div class="row justify-content-center">
-		<div id="news-space" class="col-md-12">
-			<div class="margin-top"></div>
-			<form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-7">
-				<p>
-					<label>Correo Electronico:</label>
-					<input type="email" #email="ngModel" name="email" [(ngModel)]="correo" class="form-control" required/>
-					<span *ngIf="!email.valid && email.touched">El email es obligatorio</span>
-				</p>
-				<p>
-					<label>Contraseña:</label>
-					<input type="password" #password="ngModel" name="password" [(ngModel)]="contrasena" class="form-control" required/>
-					<span *ngIf="!password.valid && password.touched">El password es obligatorio</span>
-				</p>
-				<input type="submit" name="Login" value="Login" class="btn btn-primary">
-			</form>
-		</div>
-	</div>
+	<div class="card">
 
+		<div class="container">
+			<div class="row justify-content-center">
+				<h1>Iniciar Sesión</h1>
+			</div>
+		</div>
+
+		<form class="container">
+			<div class="form-group">
+				<label for="name">Email</label>
+				<input type="email" class="form-control" name="email" [(ngModel)]="login.email"/>
+			</div>
+			<div class="form-group">
+				<label for="password">Contraseña</label>
+				<input type="text"  class="form-control" name="password" [(ngModel)]="login.password"/>
+			</div>
+		</form>
+
+		<div id="botonera" class="container">
+			<div class="row justify-content-center">
+				<a>Crear una cuenta.</a>
+			</div>
+			<div class="row justify-content-end">
+				<div class="col-md-3">
+					<button class="btn purple" (click)="onLogin()">
+						LogIn
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>

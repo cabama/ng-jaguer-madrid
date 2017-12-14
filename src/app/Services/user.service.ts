@@ -15,7 +15,6 @@ export class UserService {
   public url: string;
   public requestUrl: string;
   private user: User;
-  private storageKey;
 
   constructor (
     private _http: Http,
@@ -49,14 +48,14 @@ export class UserService {
       password: password,
       getHash: getHash
     });
-    const observer = this._http.post(this.requestUrl, params, { headers: headers }).map(res => res.json());
-    observer.subscribe().add(this.setUserFromRequest)
-    return observer.toPromise();
+    const observer = this._http.post(this.requestUrl, params, { headers: headers });
+    this.setUserFromRequest(observer);
+    return observer.map(res => res.json()).toPromise();
   }
 
   saveLogin (response) {
-    localStorage.setItem(this.storageKey.token, response.token);
-    localStorage.setItem(this.storageKey.user, JSON.stringify(response.user));
+    localStorage.setItem(StorageKeys.token, response.token);
+    localStorage.setItem(StorageKeys.user, JSON.stringify(response.user));
   }
 
   login(email, password, getHash = false): Promise<any> {
@@ -70,13 +69,15 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem(this.storageKey.token);
-    localStorage.removeItem(this.storageKey.user);
+    localStorage.removeItem(StorageKeys.token);
+    localStorage.removeItem(StorageKeys.user);
     this.user = undefined;
   }
 
-  private async setUserFromRequest (a) {
-    debugger;
+  private async setUserFromRequest (observer: Observable<Response>) {
+    observer.subscribe(
+      value => this.user
+    );
   }
 
 }
